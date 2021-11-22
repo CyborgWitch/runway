@@ -133,8 +133,8 @@ function draw() {
 function playSynth() {
   //userStartAudio();
   if (clear) {
-    polySynth.play("C5", 0.15, 0, 0.3);
-    polySynth.play("G4", 0.1, 0.5, 0.3);
+    polySynth.play("G4", 0.1, 0, 0.3);
+    polySynth.play("C4", 0.1, 0.5, 0.3);
     
   } else if (dwnld) {
     //polySynth.play win sound but in synth form/time. 

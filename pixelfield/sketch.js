@@ -6,6 +6,7 @@ let clear = false;
 let dwnld = false;
 
 //variable based on mouse speed
+let speed;
 let v;
 
 function setup() {
@@ -170,6 +171,7 @@ function playSynth() {
     monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
   }
 }
+
 function mousePressed() {
   userStartAudio();
   playSynth();

@@ -138,6 +138,7 @@ function mousePressed() {
       saveCanvas("myPixelField", "png");
     
   } else {
+      console.log("field");
       field = true;
       clear = false;
       dwnld = false;

@@ -1,4 +1,3 @@
-
 let polySynth;
 let monoSynth;
 
@@ -64,7 +63,7 @@ function draw() {
       console.log("clear");
       clear = true;
       dwnld = false;
-      //playSynth();
+      playSynth();
       
       //redraw canvas: background, boxes, grid, etc. 
       push();
@@ -92,8 +91,8 @@ function draw() {
         rect(0.5, 0.5, 269.5, 49.5);
 
           push();
-            fill(0, 50);
-            rect(width - 80, 0, 80, 30);
+          fill(0, 50);
+          rect(width - 80, 0, 80, 30);
           pop();
 
         push();
@@ -117,7 +116,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    //playSynth();
+    playSynth();
     saveCanvas("myPixelField", "png");
       push();
         fill(0, 50);
@@ -127,29 +126,29 @@ function draw() {
     clear = false;
     dwnld = false;
   }
+
 }
 
 function playSynth() {
   //userStartAudio();
- if (clear) {
-     polySynth.play("G4", 0.1, 0, 0.3);
-     polySynth.play("C4", 0.1, 0.4, 0.3);
-			
- } else if (dwnld) {
-     //polySynth.play win sound but in synth form/time. 
+  if (clear) {
+    polySynth.play("G4",  0.1, 0, 0.3);
+    polySynth.play("C4",  0.1, 0.4, 0.3);
+    
+  } else if (dwnld) {
+    //polySynth.play win sound but in synth form/time. 
      monoSynth.play("G4", 0.1, 0, 0.4);
      polySynth.play("C4", 0.1, 0.3, 0.4);
      polySynth.play("B5", 0.1, 0.7, 0.2);
      polySynth.play("C5", 0.1, 0.9, 0.3);
-
     // mapped monosynth for pixelField
- } else if (!clear && !dwnld) {
-     let mapNote = int(map(mouseX, 0, width, 0, 5));
-     let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
-     monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
- }
-}
+  } else if (!clear && !dwnld){
+    let mapNote = int(map(mouseX, 0, width, 0, 5));
+    let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
+    monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
+  }
 
+}
 function mouseDragged() {
   userStartAudio();
   playSynth();
@@ -181,4 +180,3 @@ function mouseDragged() {
     pop();
   pop();
 }
-

@@ -23,7 +23,8 @@ function draw() {
   strokeWeight(0.25);
   speed = dist(pmouseX, pmouseY, mouseX, mouseY);
   v = map(speed, 0, width, 0, 20);
-
+  //playSynth();
+  
   //canvas perimenter border
   push();
     strokeWeight(1);
@@ -58,13 +59,8 @@ function draw() {
   pop();
 
   // if mouse is pressed within "clear"
-  if (mouseX > width - 80 && mouseX < width && mouseY > 0 && mouseY < 30 && mouseIsPressed) {
+  if (clear) {
       //clear is true
-      console.log("clear");
-      clear = true;
-      dwnld = false;
-      playSynth();
-      
       //redraw canvas: background, boxes, grid, etc. 
       push();
         frameRate(5);
@@ -112,12 +108,8 @@ function draw() {
       pop();
     
     // if mouse is pressed inside "dwnld"
-  } else if (mouseX > width - 80 && mouseX < width && mouseY > height - 30 && mouseY < height && mouseIsPressed) {
-    dwnld = true;
-    clear = false;
-    console.log("dwnld");
-    playSynth();
-    saveCanvas("myPixelField", "png");
+  } else if (dwnld) {
+    //dwnld is true
       push();
         fill(0, 50);
         rect(width - 80, height-29.5, 79.5, 29);
@@ -126,7 +118,30 @@ function draw() {
     clear = false;
     dwnld = false;
   }
+}
 
+function mousePressed() {
+  userStartAudio();
+  playSynth();
+  if (mouseX > width - 80 && mouseX < width && mouseY > 0 && mouseY < 30 && mouseIsPressed) {
+      //clear is true
+      console.log("clear");
+      clear = true;
+      dwnld = false;
+      //playSynth();
+    
+    //if mouse is pressed inside "dwnld"
+  } else if (mouseX > width - 80 && mouseX < width && mouseY > height - 30 && mouseY < height && mouseIsPressed) {
+     dwnld = true;
+     clear = false;
+     console.log("dwnld");
+     //playSynth();
+     saveCanvas("myPixelField", "png");
+    
+  } else {
+     clear = false;
+     dwnld = false;
+  }
 }
 
 function playSynth() {
@@ -148,6 +163,7 @@ function playSynth() {
      monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
   }
 }
+
 function mouseDragged() {
   userStartAudio();
   playSynth();

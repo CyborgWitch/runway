@@ -34,8 +34,8 @@ function draw() {
 
   for (let i = 0; i <= width; i = i + 10) {
     for (let j = 0; j <= height; j = j + 10) {
-      line(i, 0, i, height);
-      line(0, j, width, j);
+         line(i, 0, i, height);
+         line(0, j, width, j);
     }
   }
 
@@ -58,7 +58,7 @@ function draw() {
     pop();
   pop();
 
-  // if mouse is pressed within "clear"
+  // if mouse has been pressed within "clear"
   if (clear) {
       //clear is true
       //redraw canvas: background, boxes, grid, etc. 
@@ -107,16 +107,13 @@ function draw() {
         rect(0.5, 0.5, width - 1, height - 1);
       pop();
     
-    // if mouse is pressed inside "dwnld"
+    // if mouse has been pressed inside "dwnld"
   } else if (dwnld) {
     //dwnld is true
       push();
         fill(0, 50);
         rect(width - 80, height-29.5, 79.5, 29);
       pop();
-  } else {
-    clear = false;
-    dwnld = false;
   }
 }
 
@@ -145,11 +142,11 @@ function mousePressed() {
 
 function playSynth() {
   //userStartAudio();
-  if (clear && !dwnld) {
+  if (clear) {
      polySynth.play("G4",  0.1, 0, 0.3);
      polySynth.play("C4",  0.1, 0.4, 0.3);
     
-  } else if (dwnld && !clear) {
+  } else if (dwnld) {
      //polySynth.play win sound but in synth form/time. 
      monoSynth.play("G4", 0.1, 0, 0.4);
      polySynth.play("C4", 0.1, 0.5, 0.3);
@@ -167,6 +164,8 @@ function playSynth() {
 function mouseDragged() {
   userStartAudio();
   playSynth();  
+  
+  //this is drawing the pixels as you drag
   for (let i = 0; i <= width; i = i + 20) {
     for (let j = 0; j <= height; j = j + 20) {
       if (mouseX > i && mouseX < i + 20 && mouseY > j && mouseY < j + 20) {
@@ -175,6 +174,7 @@ function mouseDragged() {
       }
     }
   }
+  
   //so the boxes draw OVER the drawing pixels
   push();
     fill(203, 194, 184);

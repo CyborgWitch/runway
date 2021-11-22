@@ -149,6 +149,8 @@ function playSynth() {
      polySynth.play("G4",  0.1, 0, 0.3);
      polySynth.play("C4",  0.1, 0.4, 0.3);
      clear=false;
+     console.log("clear off");
+    
   } else if (dwnld && !clear) {
      //polySynth.play win sound but in synth form/time. 
      monoSynth.play("G4", 0.1, 0, 0.4);
@@ -156,6 +158,8 @@ function playSynth() {
      polySynth.play("B5", 0.1, 0.8, 0.2);
      polySynth.play("C5", 0.1, 1, 0.2);
      dwnld = false
+     console.log("dwnld off"); 
+    
     // mapped monosynth for pixelField
   } else if (!dwnld && !clear) {
      let mapNote = int(map(mouseX, 0, width, 0, 5));

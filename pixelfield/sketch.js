@@ -6,8 +6,8 @@ let clear = false;
 let dwnld = false;
 
 //variable based on mouse speed
-let speed;
 let v;
+let speed;
 
 function setup() {
   // createCanvas(window.innerWidth, window.innerHeight);
@@ -71,7 +71,7 @@ function draw() {
     console.log("clear");
     clear = true;
     dwnld = false;
-    //playSynth();
+    playSynth();
     push();
     frameRate(5);
     background(random(150, 255), random(150, 255), random(150, 255));
@@ -129,7 +129,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    //playSynth();
+    playSynth();
     saveCanvas("myPixelField", "png");
 
       push();
@@ -141,42 +141,29 @@ function draw() {
     clear = false;
     dwnld = false;
   }
+
 }
 
 function playSynth() {
   //userStartAudio();
   if (clear && !dwnld) {
-    polySynth.play("G4",  0.1, 0, 0.3)
-    polySynth.play("C4",  0.1, 0.35, 0.2)
+    polySynth.play("G4",  0.1, 0, 0.3);
+    polySynth.play("C4",  0.1, 0.35, 0.2);
   } else if (dwnld && !clear) {
     //polySynth.play win sound but in synth form/time. 
-//     polySynth.play("C3",  0.1, 0, 0.4);
-//     polySynth.play("A3",  0.1, 0.5, 0.9);
-//     polySynth.play("B3",  0.1, 0.7, 0.2);
-//     polySynth.play("C4",  0.1, 1, 0.3);
-//     polySynth.play("F4",  0.1, 0, 0.4);
-//     polySynth.play("A5",  0.1, 0.5, 0.4);
-//     polySynth.play("B5",  0.1, 1, 0.2);
-//     polySynth.play("C5",  0.1, 1.2, 0.3);
-   
-    polySynth.play("F4",  0.1, 0, 0.5);
-    polySynth.play("A5",  0.1, 0.7, 0.5);
-    polySynth.play("B5",  0.1, 0.8, 0.5);
-    polySynth.play("C5",  0.1, 1, 0.5);
-    
+    polySynth.play("C4",  0.1, 0, 0.4);
+    polySynth.play("A5",  0.1, 0.5, 0.9);
+    polySynth.play("B5",  0.1, 0.7, 0.2);
+    polySynth.play("C5",  0.1, 1, 0.4);
+
     // mapped monosynth for pixelField
   } else {
     let mapNote = int(map(mouseX, 0, width, 0, 5));
     let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
     monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
   }
-}
 
-function mousePressed() {
-  userStartAudio();
-  playSynth();
 }
-
 function mouseDragged() {
   userStartAudio();
   playSynth();
@@ -207,3 +194,4 @@ function mouseDragged() {
   pop();
   pop();
 }
+

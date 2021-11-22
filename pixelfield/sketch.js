@@ -173,7 +173,7 @@ function playSynth() {
 
 }
 function mouseDragged() {
-
+  userStartAudio();
   playSynth();
   for (let i = 0; i <= width; i = i + 20) {
     for (let j = 0; j <= height; j = j + 20) {

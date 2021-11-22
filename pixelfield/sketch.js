@@ -63,7 +63,7 @@ function draw() {
       console.log("clear");
       clear = true;
       dwnld = false;
-      playSynth();
+      //playSynth();
       
       //redraw canvas: background, boxes, grid, etc. 
       push();
@@ -116,7 +116,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    playSynth();
+    //playSynth();
     saveCanvas("myPixelField", "png");
       push();
         fill(0, 50);
@@ -137,8 +137,8 @@ function playSynth() {
     
   } else if (dwnld) {
      //polySynth.play win sound but in synth form/time. 
-     monoSynth.play("G4", 0.1, 0, 0.3);
-     polySynth.play("C4", 0.1, 0.4, 0.4);
+     monoSynth.play("G4", 0.1, 0, 0.4);
+     polySynth.play("C4", 0.1, 0.3, 0.4);
      polySynth.play("B5", 0.1, 0.7, 0.2);
      polySynth.play("C5", 0.1, 0.9, 0.3);
     // mapped monosynth for pixelField

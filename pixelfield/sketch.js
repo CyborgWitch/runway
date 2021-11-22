@@ -132,17 +132,17 @@ function draw() {
 
 function playSynth() {
   //userStartAudio();
-  if (clear) {
-    polySynth.play("G4", 0.1, 0, 0.3);
-    polySynth.play("C4", 0.1, 0.5, 0.3);
-    
-  } else if (dwnld) {
-    //polySynth.play win sound but in synth form/time. 
-    monoSynth.play("G4", 0.1, 0, 0.4);
-    polySynth.play("C4", 0.1, 0.3, 0.4);
-    //polySynth.play("A5", 0.1, 0.8, 0.6);
-    polySynth.play("B5", 0.1, 0.7, 0.2);
-    polySynth.play("C5", 0.1, 0.9, 0.3);
+   if (clear) {
+			 polySynth.play("G4", 0.1, 0, 0.3);
+			 polySynth.play("C4", 0.1, 0.5, 0.3);
+			
+		} else if (dwnld) {
+			 //polySynth.play win sound but in synth form/time. 
+			 monoSynth.play("G4", 0.1, 0, 0.4);
+			 polySynth.play("C4", 0.1, 0.3, 0.4);
+			 //polySynth.play("A5", 0.1, 0.8, 0.6);
+			 polySynth.play("B5", 0.1, 0.7, 0.2);
+			 polySynth.play("C5", 0.1, 0.9, 0.3);
 
     // mapped monosynth for pixelField
   } else if (!clear && !dwnld){

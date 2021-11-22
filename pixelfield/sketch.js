@@ -137,11 +137,13 @@ function mousePressed() {
       console.log("dwnld");
       saveCanvas("myPixelField", "png");
     
+    //if mouse is pressed anywhere else
   } else {
-      console.log("field");
       field = true;
       clear = false;
       dwnld = false;
+      console.log("field");
+
   }
 }
 
@@ -150,6 +152,7 @@ function playSynth() {
   if (clear && !field && !dwnld) {
      polySynth.play("G4",  0.1, 0, 0.3);
      polySynth.play("C4",  0.1, 0.4, 0.3);
+     clear = false;
     
   } else if (dwnld && !field && !clear) {
      //polySynth.play win sound but in synth form/time. 
@@ -157,6 +160,7 @@ function playSynth() {
      polySynth.play("C4", 0.1, 0.5, 0.3);
      polySynth.play("B5", 0.1, 0.8, 0.2);
      polySynth.play("C5", 0.1, 1, 0.2);
+     dwnld = false;
     
     // mapped monosynth for pixelField
   } else if (field && !dwnld && !clear) {

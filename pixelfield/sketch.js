@@ -122,28 +122,19 @@ function draw() {
 
 function mousePressed() {
   userStartAudio();
-  //playSynth();
+  playSynth();
      //if mouse is pressed inside "clear"
   if (mouseX > width - 80 && mouseX < width && mouseY > 0 && mouseY < 30 && mouseIsPressed) {
       //clear is true
       console.log("clear");
       clear = true;
       dwnld = false;
-      //playSynth();
-      polySynth.play("G4",  0.1, 0, 0.3);
-      polySynth.play("C4",  0.1, 0.4, 0.3);
     
     //if mouse is pressed inside "dwnld"
   } else if (mouseX > width - 80 && mouseX < width && mouseY > height - 30 && mouseY < height && mouseIsPressed) {
      dwnld = true;
      clear = false;
      console.log("dwnld");
-     //playSynth();
-     monoSynth.play("G4", 0.1, 0, 0.4);
-     polySynth.play("C4", 0.1, 0.5, 0.3);
-     polySynth.play("B5", 0.1, 0.8, 0.2);
-     polySynth.play("C5", 0.1, 1, 0.2);
-    
      saveCanvas("myPixelField", "png");
     
   } else {
@@ -152,35 +143,29 @@ function mousePressed() {
   }
 }
 
-// function playSynth() {
-//   //userStartAudio();
-//   if (clear && !dwnld) {
-//      polySynth.play("G4",  0.1, 0, 0.3);
-//      polySynth.play("C4",  0.1, 0.4, 0.3);
+function playSynth() {
+  //userStartAudio();
+  if (clear && !dwnld) {
+     polySynth.play("G4",  0.1, 0, 0.3);
+     polySynth.play("C4",  0.1, 0.4, 0.3);
     
-//   } else if (dwnld && !clear) {
-//      //polySynth.play win sound but in synth form/time. 
-//      monoSynth.play("G4", 0.1, 0, 0.4);
-//      polySynth.play("C4", 0.1, 0.5, 0.3);
-//      polySynth.play("B5", 0.1, 0.8, 0.2);
-//      polySynth.play("C5", 0.1, 1, 0.2);
-//     // mapped monosynth for pixelField
-//   } else {
-//      let mapNote = int(map(mouseX, 0, width, 0, 5));
-//      let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
-//      monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
-//   }
-// }
-
-function mouseDragged() {
-  userStartAudio();
-  //placing pixel synth into mouseDragged
-  if (!dwnld && !clear) {
+  } else if (dwnld && !clear) {
+     //polySynth.play win sound but in synth form/time. 
+     monoSynth.play("G4", 0.1, 0, 0.4);
+     polySynth.play("C4", 0.1, 0.5, 0.3);
+     polySynth.play("B5", 0.1, 0.8, 0.2);
+     polySynth.play("C5", 0.1, 1, 0.2);
+    // mapped monosynth for pixelField
+  } else {
      let mapNote = int(map(mouseX, 0, width, 0, 5));
      let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
      monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
   }
-  
+}
+
+function mouseDragged() {
+  userStartAudio();
+  playSYnth();  
   for (let i = 0; i <= width; i = i + 20) {
     for (let j = 0; j <= height; j = j + 20) {
       if (mouseX > i && mouseX < i + 20 && mouseY > j && mouseY < j + 20) {

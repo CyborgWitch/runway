@@ -142,11 +142,11 @@ function mousePressed() {
 
 function playSynth() {
   //userStartAudio();
-  if (clear) {
+  if (clear && !dwnld) {
      polySynth.play("G4",  0.1, 0, 0.3);
      polySynth.play("C4",  0.1, 0.4, 0.3);
     
-  } else if (dwnld) {
+  } else if (dwnld && !clear) {
      //polySynth.play win sound but in synth form/time. 
      monoSynth.play("G4", 0.1, 0, 0.4);
      polySynth.play("C4", 0.1, 0.5, 0.3);

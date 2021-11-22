@@ -63,7 +63,7 @@ function draw() {
       console.log("clear");
       clear = true;
       dwnld = false;
-      playSynth();
+      //playSynth();
       
       //redraw canvas: background, boxes, grid, etc. 
       push();
@@ -116,7 +116,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    playSynth();
+    //playSynth();
     saveCanvas("myPixelField", "png");
       push();
         fill(0, 50);

@@ -153,8 +153,8 @@ function playSynth() {
   } else if (dwnld && !clear) {
      //polySynth.play win sound but in synth form/time. 
      monoSynth.play("G4", 0.1, 0, 0.4);
-     polySynth.play("C4", 0.1, 0.2, 0.4);
-     polySynth.play("B5", 0.08, 0.8, 0.2);
+     polySynth.play("C4", 0.1, 0.3, 0.3);
+     polySynth.play("B5", 0.08, 0.7, 0.2);
      polySynth.play("C5", 0.07, 0.9, 0.3);
     // mapped monosynth for pixelField
   } else {

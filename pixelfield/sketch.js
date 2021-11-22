@@ -9,8 +9,8 @@ let v;
 let speed;
 
 function setup() {
-  // createCanvas(window.innerWidth, window.innerHeight);
-  createCanvas(500, 500);
+  createCanvas(window.innerWidth, window.innerHeight);
+  //createCanvas(500, 500);
   background(random(150,255), random(150,255), random(150,255));
 
   polySynth = new p5.PolySynth();
@@ -124,22 +124,22 @@ function mousePressed() {
   userStartAudio();
   playSynth();
      //if mouse is pressed inside "clear"
-  if (mouseX > width - 80 && mouseX < width && mouseY > 0 && mouseY < 30 && mouseIsPressed) {
+  if (mouseX > width - 80 && mouseX < width && mouseY > 0 && mouseY < 30) {
       //clear is true
       console.log("clear");
       clear = true;
       dwnld = false;
     
     //if mouse is pressed inside "dwnld"
-  } else if (mouseX > width - 80 && mouseX < width && mouseY > height - 30 && mouseY < height && mouseIsPressed) {
-     dwnld = true;
-     clear = false;
-     console.log("dwnld");
-     saveCanvas("myPixelField", "png");
+  } else if (mouseX > width - 80 && mouseX < width && mouseY > height - 30 && mouseY < height) {
+      dwnld = true;
+      clear = false;
+      console.log("dwnld");
+      saveCanvas("myPixelField", "png");
     
   } else {
-     clear = false;
-     dwnld = false;
+      clear = false;
+      dwnld = false;
   }
 }
 
@@ -155,8 +155,9 @@ function playSynth() {
      polySynth.play("C4", 0.1, 0.5, 0.3);
      polySynth.play("B5", 0.1, 0.8, 0.2);
      polySynth.play("C5", 0.1, 1, 0.2);
+    
     // mapped monosynth for pixelField
-  } else {
+  } else if (!dwnld && !clear) {
      let mapNote = int(map(mouseX, 0, width, 0, 5));
      let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
      monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
@@ -165,7 +166,7 @@ function playSynth() {
 
 function mouseDragged() {
   userStartAudio();
-  playSYnth();  
+  playSynth();  
   for (let i = 0; i <= width; i = i + 20) {
     for (let j = 0; j <= height; j = j + 20) {
       if (mouseX > i && mouseX < i + 20 && mouseY > j && mouseY < j + 20) {

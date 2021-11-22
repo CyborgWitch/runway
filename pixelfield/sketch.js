@@ -165,7 +165,7 @@ function playSynth() {
 
 function mouseDragged() {
   userStartAudio();
-  playSYnth();  
+  playSynth();  
   for (let i = 0; i <= width; i = i + 20) {
     for (let j = 0; j <= height; j = j + 20) {
       if (mouseX > i && mouseX < i + 20 && mouseY > j && mouseY < j + 20) {

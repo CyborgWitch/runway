@@ -161,10 +161,10 @@ function playSynth() {
     //monoSynth.play("C5",  0.1, 0.13, 0.4);
    
 
-    polySynth.play("F4",  0.1, 0, 0.4);
-    polySynth.play("G4",  0.1, 0.5, 0.4);
-    polySynth.play("A4",  0.1, 0.7, 0.5);
-    polySynth.play("C5",  0.1, 0.9, 0.4);
+    polySynth.play("C4",  0.1, 0, 0.4);
+    polySynth.play("A5",  0.1, 0.5, 0.4);
+    polySynth.play("B5",  0.1, 0.9, 0.4);
+    polySynth.play("C5",  0.1, 1.3, 0.4);
 
     // mapped monosynth for pixelField
   } else {

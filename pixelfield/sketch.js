@@ -9,8 +9,8 @@ let v;
 let speed;
 
 function setup() {
-  // createCanvas(window.innerWidth, window.innerHeight);
-  createCanvas(500, 500);
+  createCanvas(window.innerWidth, window.innerHeight);
+  //createCanvas(500, 500);
   background(random(150,255), random(150,255), random(150,255));
 
   polySynth = new p5.PolySynth();

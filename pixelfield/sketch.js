@@ -70,7 +70,7 @@ function draw() {
     console.log("clear");
     clear = true;
     dwnld = false;
-    playSynth();
+    //playSynth();
     push();
     frameRate(5);
     background(random(150, 255), random(150, 255), random(150, 255));
@@ -128,7 +128,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    playSynth();
+    //playSynth();
     saveCanvas("myPixelField", "png");
 
       push();
@@ -140,7 +140,6 @@ function draw() {
     clear = false;
     dwnld = false;
   }
-
 }
 
 function playSynth() {
@@ -161,8 +160,12 @@ function playSynth() {
     let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
     monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);
   }
-
 }
+function mousePressed() {
+  userStartAudio();
+  playSynth();
+}
+
 function mouseDragged() {
   userStartAudio();
   playSynth();

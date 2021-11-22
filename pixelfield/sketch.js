@@ -71,7 +71,7 @@ function draw() {
     console.log("clear");
     clear = true;
     dwnld = false;
-    playSynth();
+    //playSynth();
     push();
     frameRate(5);
     background(random(150, 255), random(150, 255), random(150, 255));
@@ -129,7 +129,7 @@ function draw() {
     dwnld = true;
     clear = false;
     console.log("dwnld");
-    playSynth();
+    //playSynth();
     saveCanvas("myPixelField", "png");
 
       push();

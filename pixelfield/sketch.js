@@ -145,10 +145,10 @@ function draw() {
 
 function playSynth() {
   //userStartAudio();
-  if (clear) {
+  if (clear && !dwnld) {
     polySynth.play("G4",  0.1, 0, 0.3)
     polySynth.play("C4",  0.1, 0.35, 0.2)
-  } else if (dwnld) {
+  } else if (dwnld && !clear) {
     //polySynth.play win sound but in synth form/time. 
     polySynth.play("F4",  0.1, 0, 0.4);
     polySynth.play("A5",  0.1, 0.8, 0.4);
@@ -161,7 +161,7 @@ function playSynth() {
     // polySynth.play("C5",  0.1, 0.5, 0.5)
 
     // mapped monosynth for pixelField
-  } else if (!clear && !dwnld) {
+  } else {
     let mapNote = int(map(mouseX, 0, width, 0, 5));
     let noteSelect = ["C4", "D4", "E4", "F4", "G4"];
     monoSynth.play(noteSelect[mapNote], 0.1, 0, 0.5);

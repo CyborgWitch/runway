@@ -152,8 +152,8 @@ function playSynth() {
     //polySynth.play win sound but in synth form/time. 
     polySynth.play("F4",  0.1, 0, 0.4);
     polySynth.play("A5",  0.1, 0.8, 0.5);
-    polySynth.play("B5",  0.1, 1.1, 0.5);
-    polySynth.play("C5",  0.1, 1.3, 0.3);
+    polySynth.play("B5",  0.1, 1.1, 0.3);
+    polySynth.play("C5",  0.1, 1.4, 0.4);
     
     //monoSynth.play("F4",  0.1, 0, 0.4);
     //monoSynth.play("A5",  0.1, 0.7, 0.4);
